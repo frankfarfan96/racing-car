@@ -11,6 +11,11 @@ public class Gara {
       this.partecipanti = new Veicolo[numeroPartecipanti];
   }
 
+  public Gara(int numeroPartecipanti, int lunghezzaPercorso) {
+    this(numeroPartecipanti);
+    this.lunghezzaPercorso = lunghezzaPercorso;
+  }
+
   public Gara add(Veicolo partecipante) {
       if(partecipantiOnline < this.partecipanti.length) {
         this.partecipanti[partecipantiOnline] = partecipante;
