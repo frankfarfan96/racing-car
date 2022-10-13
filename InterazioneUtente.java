@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class InterazioneUtente {
   public static Scanner sc = new Scanner(System.in);
 
@@ -8,7 +10,7 @@ public class InterazioneUtente {
     printMenu();
 
     do {
-      Sytem.out.print(" ~~> ");
+      System.out.print(" ~~> ");
       option = sc.nextInt();
       switch(option) {
         case 1:
@@ -54,10 +56,10 @@ public class InterazioneUtente {
           break;
 
         default:
-          printError(" Seleziona un'opzione valida (1-3)!!")
+          printError(" Seleziona un'opzione valida (1-3)!!");
       }
 
-    } while(option < 1 || option > 3)
+    } while(option < 1 || option > 3);
 
     
     return utente;
@@ -65,9 +67,8 @@ public class InterazioneUtente {
 
   public static void printModelliVeicolo(Veicolo[] modelli) {
     for(int i = 0; i < modelli.length; i++) {
-      System.out.print(i + ")" + veicolo.getModello());
+      System.out.println(i + ")" + modelli[i].getModello());
     }
-    
   }
 
   public static String getUtenteName() {

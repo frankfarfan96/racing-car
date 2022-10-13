@@ -1,11 +1,19 @@
 public class Main {
 
     public static void main(String[] args) {
+      Gara gara = new Gara(10);
 
-      Auto auto1 = Database.partecipantiAuto[1];
+      gara.generaPartecipantiBot();
+      
+      Veicolo user = InterazioneUtente.getVeicoloUtente();
 
-      auto1.generaVelocita();
+      gara.add(user);
 
-      System.out.print(auto1);
+      gara.startRace();
+
+      System.out.println("\n\n\n");
+
+      gara.ordinaClassifica();
+      gara.print();
     }
 }

@@ -24,7 +24,7 @@ public class Gara {
       return this;
   }
 
-  private void generaPartecipantiBot() {
+  public void generaPartecipantiBot() {
       for(int i = 0; i < this.partecipanti.length - 1; i++) {
         Veicolo newBot;
         do {
