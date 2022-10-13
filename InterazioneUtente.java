@@ -2,53 +2,62 @@ public class InterazioneUtente {
   public static Scanner sc = new Scanner(System.in);
 
   public static Veicolo getVeicoloUtente() {
-    int option, indiceVicolo;
+    int option, indiceVeicolo;
+    String utenteName;
     Veicolo utente = null;
     printMenu();
 
-
     do {
+      Sytem.out.print(" ~~> ");
+      option = sc.nextInt();
+      switch(option) {
+        case 1:
+          do {
+            printModelliVeicolo(Database.partecipantiAuto);
+            indiceVeicolo = sc.nextInt();
+            if(indiceVeicolo < 0 || indiceVeicolo >= Database.partecipantiAuto.length) {
+              System.out.println(" Seleziona un indice valido per il veicolo");
+            }
+          } while(indiceVeicolo < 0 || indiceVeicolo >= Database.partecipantiAuto.length);
+          
+          utente = Database.partecipantiAuto[indiceVeicolo];
+          utenteName = getUtenteName();
+          utente.setName(utenteName);
+          break;
 
+        case 2:
+          do {
+            printModelliVeicolo(Database.partecipantiMoto);
+            indiceVeicolo  = sc.nextInt();
+            if(indiceVeicolo < 0 || indiceVeicolo >= Database.partecipantiMoto.length) {
+              System.out.println(" Seleziona un indice valido per il veicolo");
+            }
+          } while(indiceVeicolo < 0 || indiceVeicolo >= Database.partecipantiMoto.length);
 
-    Sytem.out.print(" ~~> ");
-    option = sc.nextInt();
-    switch(option) {
-      case 1:
-        do {
-        printModelliVeicolo(Database.partecipantiAuto);
-        indiceVicolo = sc.nextInt();
-        if(indiceVicolo < 0 || indiceVicolo >= Database.partecipantiAuto.length) {
-          System.out.println("Error")
-        }
-        } while(indiceVicolo < 0 || indiceVicolo >= Database.partecipantiAuto.length)
-         utente = Database.partecipantiAuto[option];
-        utenteName = getUtenteName();
-        utente.setName(utenteName);
-        break;
+          utente = Database.partecipantiMoto[indiceVeicolo];
+          utenteName = getUtenteName();
+          utente.setName(utenteName);
+          break;
 
-      case 2:
-        printModelliVeicolo(Database.partecipantiMoto);
-        if(option >= 0 && option < Database.partecipantiMoto.length) {
-        utente = Database.partecipantiMoto[option];
-        utenteName = getUtenteName();
-        utente.setName(utenteName);
-        }
-        break;
+        case 3:
+          do {
+            printModelliVeicolo(Database.partecipantiAereo);
+            indiceVeicolo = sc.nextInt();
+            if(indiceVeicolo < 0 || indiceVeicolo >= Database.partecipantiAereo.length) {
+              System.out.println(" Seleziona un indice valido per il veicolo");
+            }
+          } while(indiceVeicolo < 0  || indiceVeicolo >= Database.partecipantiMoto.length);
 
-      case 3:
-        printModelliVeicolo(Database.partecipantiAereo);
-        if(option >= 0 && option < Database.partecipantiAereo.length) {
-        utente = Database.partecipantiAereo[option];
-        utenteName = getUtenteName();
-        utente.setName(utenteName);
-        }
-        break;
+          utente = Database.partecipantiAereo[indiceVeicolo];
+          utenteName = getUtenteName();
+          utente.setName(utenteName);
+          break;
 
-      default:
-        System.out.println(" Seleziona un'opzione valida (1-3)!!")
-    }
+        default:
+          printError(" Seleziona un'opzione valida (1-3)!!")
+      }
 
-    } while(option < 1 && option > 3)
+    } while(option < 1 || option > 3)
 
     
     return utente;
@@ -84,6 +93,6 @@ public class InterazioneUtente {
   }
 
   public static void printError(String error) {
-    System.out.println(Colors.)
+    System.out.println(Colors.ANSI_RED + error + Colors.ANSI_RESET);
   }
 }

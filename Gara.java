@@ -10,7 +10,7 @@ public class Gara {
   public Gara(int numeroPartecipanti) {
       this.partecipanti = new Veicolo[numeroPartecipanti];
   }
-
+//---
   public Gara(int numeroPartecipanti, int lunghezzaPercorso) {
     this(numeroPartecipanti);
     this.lunghezzaPercorso = lunghezzaPercorso;
